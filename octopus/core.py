@@ -83,7 +83,7 @@ class Octopus(object):
             cookies=dict([(key, value) for key, value in response.cookies.items()]),
             text=response.text, effective_url=response.url,
             error=response.status_code > 399 and response.text or None,
-            request_time=response.elapsed and response.elapsed.total_seconds or 0
+            request_time=response.elapsed and response.elapsed.total_seconds() or 0
         )
 
     def enqueue(self, url, handler, method='GET', **kw):
